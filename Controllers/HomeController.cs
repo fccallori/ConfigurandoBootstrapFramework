@@ -18,6 +18,18 @@ namespace ConfigurandoBootstrapFramework.Controllers
         [HttpPost]
         public ViewResult Agenda(Compromisso compromisso)
         {
+            if ((compromisso.Assunto.Split(" ")).Length <5)
+            {
+                ModelState.AddModelError(nameof(compromisso.Assunto),
+               "O campo Assunto deve ter mais de 5 palavras!");
+            }
+
+            if (compromisso.qtdePessoa <= 0)
+            {
+                ModelState.AddModelError(nameof(compromisso.qtdePessoa),
+               "A quantidade de pessoas deve ser maior do que zero!");
+            }
+
             if (!compromisso.AceitaTermos)
             {
                 ModelState.AddModelError(nameof(compromisso.AceitaTermos),

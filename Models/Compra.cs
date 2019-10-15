@@ -19,7 +19,7 @@ namespace ConfigurandoBootstrapFramework.Models
         [Phone]
         public string Telefone { get; set; }
 
-        [Range(typeof(bool), "false", "true", ErrorMessage = "Informe se o número tem WhatsApp")]
+        [Range(typeof(bool), "true", "true", ErrorMessage = "Informe se o número tem WhatsApp")]
         public bool NumeroComWhatsApp { get; set; }
 
         [Range(minimum: 5, maximum: 10, ErrorMessage = "Valor mínimo 5 e máximo 8")]
