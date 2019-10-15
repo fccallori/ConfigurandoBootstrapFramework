@@ -1,0 +1,16 @@
+﻿@model ConfigurandoBootstrapFramework.Models.Login
+@{ Layout = "_Layout"; }
+<div class="bg-success panel-body"><h2>Login Realizado com sucesso!</h2></div>
+<table class="table table-bordered">
+    <tr>
+        <th>Email:</th>
+        <td>@Model.Nome</td>
+    </tr>
+    <tr>
+        <th>E-mail:</th>
+        <td>@Model.Senha</td>
+    </tr>
+    
+
+</table>
+<a class="btn btn-success" asp-action="Login">Nova Login</a>

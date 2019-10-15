@@ -74,5 +74,50 @@ namespace ConfigurandoBootstrapFramework.Controllers
                 return View(compra);
             }
         }
+
+        [HttpGet]
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Login(Login login)
+        {
+
+            if (string.IsNullOrEmpty(login.Nome))
+            {
+                ModelState.AddModelError(nameof(login.Nome),
+                "Informe seu email");
+            }
+
+            if (string.IsNullOrEmpty(login.Senha))
+            {
+                ModelState.AddModelError(nameof(login.Senha),
+                "Informe sua senha!!");
+            }
+
+            if (!login.Nome.Equals("alice@gmail.com") || !login.Senha.Equals("123"))
+            {
+                if (!login.Nome.Equals("alice@gmail.com"))
+                {
+                    ModelState.AddModelError(nameof(login.Senha),"Email Incorreto!!");
+                }
+
+                if (!login.Senha.Equals("123"))
+                {
+                    ModelState.AddModelError(nameof(login.Senha), "Senha Incorreta!!");
+                }
+            }
+
+            if (ModelState.IsValid)
+            {
+                return View("LoginConfirmado", login);
+            }
+            else
+            {
+                return View(login);
+            }
+        }
     }
 }

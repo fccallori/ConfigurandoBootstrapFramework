@@ -1,0 +1,32 @@
+﻿@model ConfigurandoBootstrapFramework.Models.Login
+@{ Layout = "_Layout"; }
+
+@section scripts {
+    <script src="~/lib/jquery/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("input.input-validation-error").addClass("is-invalid");
+        });
+    </script>
+}
+
+<div class="bg-primary panel-body"><h2>Login</h2></div>
+<form class="panel-body" asp-action="Login" method="post">
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <hr />
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="Nome">Email:</label>
+        <div><span asp-validation-for="Nome" class="text-danger"></span></div>
+        <input asp-for="Nome" type="text" class="form-control" />
+    </div>
+    <divC class="form-group">
+        <label asp-for="Senha">Senha:</label>
+        <div><span asp-validation-for="Senha" class="text-danger"></span></div>
+        <input asp-for="Senha" type="password" class="form-control" />
+    </divC>
+   
+    <button type="submit" class="btn btn-primary">Logar</button>
+</form>
