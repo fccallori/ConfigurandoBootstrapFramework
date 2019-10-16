@@ -10,6 +10,25 @@ namespace ConfigurandoBootstrapFramework.Controllers
 {
     public class HomeController : Controller
     {
+        [HttpGet]
+        public IActionResult Compra()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Compra(Compra compra)
+        {
+            if (ModelState.IsValid)
+            {
+                return View("CompraConfirmado", compra);
+            }
+            else
+            {
+                return View(compra);
+            }
+        }
+
         public IActionResult Index()
         {
             return View("Agenda");
@@ -68,24 +87,7 @@ namespace ConfigurandoBootstrapFramework.Controllers
                 return View();
             }     
         }
-        [HttpGet]
-        public IActionResult Compra()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public IActionResult Compra(Compra compra)
-        {
-            if (ModelState.IsValid)
-            {
-                return View("CompraConfirmado", compra);
-            }
-            else
-            {
-                return View(compra);
-            }
-        }
+        
 
         [HttpGet]
         public IActionResult Login()
