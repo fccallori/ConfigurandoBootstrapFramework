@@ -1,0 +1,39 @@
+﻿@model IList<EnderecoResumido>
+@{
+    ViewBag.Title = "Endereço";
+    Layout = "_Layout";
+}
+<div class="bg-primary panel-body">
+    <h1 class="text-center display-4 text-white">Endereços</h1>
+</div>
+@if (Model.Count() == 0)
+{
+    <form asp-action="Enderecos" method="post">
+        @for (int i = 0; i < 3; i++)
+        {
+            <fieldset class="form-group">
+                <legend>Endereços @(i + 1)</legend>
+                <div class="form-group">
+                    <label>Cidade:</label>
+                    <input name="[@i].Cidade" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>País:</label>
+                    <input name="[@i].Pais" class="form-control" />
+                </div>
+            </fieldset>
+        }
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+}
+else
+{
+    <table class="table table-condensed table-bordered table-striped">
+        <tr><th>Cidade</th><th>País</th></tr>
+        @foreach (var endereco in Model)
+        {
+            <tr><td>@endereco.Cidade</td><td>@endereco.Pais</td></tr>
+        }
+    </table>
+    <a asp-action="Enderecos" class="btn btn-primary">Voltar</a>
+}

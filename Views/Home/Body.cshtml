@@ -1,0 +1,34 @@
+﻿@{
+    ViewBag.Title = "Body";
+    Layout = "_Layout";
+}
+
+<div class="bg-primary panel-body">
+    <h1 class="text-center display-4 text-white">Pessoa</h1>
+</div>
+<table class="table table-condensed table-bordered table-striped">
+    <tr><th>Nome:</th><td id="Nome"></td></tr>
+</table>
+<button class="btn btn-primary">Enviar</button>
+
+@section scripts {
+    <script src="~/jquery/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+        $("button").click(function (e) {
+            $.ajax("/Home/Body", {
+                method: "POST",
+                contentType: "application/json",
+                data: JSON.stringify({
+                    Nome: "Maria",
+                    Sobrenome: "Alice"
+                }),
+                success: function (data) {
+                    alert(data);
+                    $("#Nome").text(data);
+                }
+            });
+        });
+    });
+    </script>
+}

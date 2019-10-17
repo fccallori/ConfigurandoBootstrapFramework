@@ -1,0 +1,10 @@
+﻿@model EnderecoResumido
+@{
+    ViewBag.Title = "Resumo";
+    Layout = "_Layout";
+}
+<div class="bg-primary panel-body"><h2>Endereço</h2></div>
+<table class="table table-condensed table-bordered table-striped">
+    <tr><th>Cidade:</th><td>@Model.Cidade</td></tr>
+    <tr><th>País:</th><td>@Model.Pais</td></tr>
+</table>

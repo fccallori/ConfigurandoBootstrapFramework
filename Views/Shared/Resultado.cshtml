@@ -1,0 +1,11 @@
+﻿@model Resultado
+<div class="panel-body">
+    <table class="table table-bordered table-striped table-condensed">
+        <tr><th>Controller:</th><td>@Model.Controller</td></tr>
+        <tr><th>Action:</th><td>@Model.Action</td></tr>
+        @foreach (string key in Model.Data.Keys)
+        {
+            <tr><th>@key :</th><td>@Model.Data[key]</td></tr>
+        }
+    </table>
+</div>
